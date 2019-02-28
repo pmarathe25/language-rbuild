@@ -15,26 +15,28 @@ patterns: [
         beginCaptures:
             1: name: 'keyword.operator.rbuild'
             2: name: 'entity.name.function.rbuild'
-        end: '\('
+        end: '{'
         name: 'meta.function.rbuild'
         patterns: [
             {
-                begin: '(.*)'
-                beginCaptures:
-                    1: name: 'variable.parameter.rbuild'
-                end: '\)'
+                begin: '\\('
+                end: '\\)'
                 patterns: [
+                    {
+                        match: '(.*)'
+                        name: 'variable.parameter.rbuild'
+                    }
                     {
                         match: ','
                         name: 'punctuation.separator.parameters.rbuild'
                     }
                 ]
             }
-            {
-                begin: '{'
-                end: '}'
-                patterns: [{include: 'source.shell'}]
-            }
         ]
+    }
+    {
+        begin: '{'
+        end: '}'
+        patterns: [{include: 'source.shell'}]
     }
 ]
