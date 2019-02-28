@@ -3,12 +3,11 @@
 
 'scopeName': 'source.rbuild'
 'name': 'RBuild'
-'fileTypes': [
-  'extension'
-]
+'fileTypes': ['rbuild']
+
 'patterns': [
   {
-    'match': '^\\s*//.*$'
+    'match': '#.*$'
     'name': 'comment'
   }
 ]
