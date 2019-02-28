@@ -1,0 +1,14 @@
+{
+  "name": "language-rbuild",
+  "version": "0.0.0",
+  "description": "Language support for RBuild files",
+  "keywords": [
+    "language",
+    "grammar"
+  ],
+  "repository": "https://github.com/pmarathe25/language-rbuild",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0"
+  }
+}
