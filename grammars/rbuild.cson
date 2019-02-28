@@ -11,7 +11,7 @@ patterns: [
         name: 'comment.line.example'
     }
     {
-        begin: '(path)\\s+(?=.*)'
+        begin: '(path)\\s+'
         beginCaptures:
             1: name: 'storage.type.function.rbuild'
         end: '(?=\\{)'
