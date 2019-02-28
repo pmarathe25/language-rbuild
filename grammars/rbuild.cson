@@ -4,48 +4,27 @@
 scopeName: 'source.rbuild'
 name: 'RBuild'
 fileTypes: ['rbuild']
+limitLineLength: false
 
 patterns: [
     {
-        match: '#.*$'
-        name: 'comment.line.example'
+        match: '#.*'
+        name: 'comment.line.rbuild'
     }
     {
-        begin: '(path)\\s+'
-        beginCaptures:
+        match: '(path)\\s+([^\\(]*)'
+        captures:
             1: name: 'storage.type.function.rbuild'
-        end: '(?=\\{)'
-        name: 'meta.function.rbuild'
+            2: name: 'entity.name.function.rbuild'
+    }
+    {
+        begin: '\\('
+        end: '\\)'
+        contentName: 'variable.parameter.function.rbuild'
         patterns: [
             {
-                # Capture function name.
-                begin: '(?=.*)'
-                end: '(?=\\()'
-                patterns: [
-                    {
-                        match: '(.*)'
-                        name: 'entity.name.function.rbuild'
-                    }
-                ]
-            }
-            {
-                # Capture arguments.
-                begin: '(\\()'
-                beginCaptures:
-                    0: name: 'punctuation.definition.parameters.begin.rbuild'
-                end: '(\\))'
-                endCaptures:
-                    0: name: 'punctuation.definition.parameters.end.rbuild'
-                patterns: [
-                    {
-                        match: '(.*)'
-                        name: 'variable.parameter.rbuild'
-                    }
-                    {
-                        match: ','
-                        name: 'punctuation.separator.parameters.rbuild'
-                    }
-                ]
+                match: ','
+                name: 'punctuation.separator.parameters.rbuild'
             }
         ]
     }
