@@ -1,6 +1,6 @@
 {
   "name": "language-rbuild",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Language support for RBuild files",
   "keywords": [
     "language",
