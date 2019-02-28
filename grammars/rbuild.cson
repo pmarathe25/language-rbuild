@@ -11,16 +11,31 @@ patterns: [
         name: 'comment.line.example'
     }
     {
-        begin: '(path) (.*)'
+        begin: '(path)\\s+(?=.*)'
         beginCaptures:
-            1: name: 'keyword.operator.rbuild'
-            2: name: 'entity.name.function.rbuild'
-        end: '{'
+            1: name: 'storage.type.function.rbuild'
+        end: '(?=\\{)'
         name: 'meta.function.rbuild'
         patterns: [
             {
-                begin: '\\('
-                end: '\\)'
+                # Capture function name.
+                begin: '(?=.*)'
+                end: '(?=\\()'
+                patterns: [
+                    {
+                        match: '(.*)'
+                        name: 'entity.name.function.rbuild'
+                    }
+                ]
+            }
+            {
+                # Capture arguments.
+                begin: '(\\()'
+                beginCaptures:
+                    0: name: 'punctuation.definition.parameters.begin.rbuild'
+                end: '(\\))'
+                endCaptures:
+                    0: name: 'punctuation.definition.parameters.end.rbuild'
                 patterns: [
                     {
                         match: '(.*)'
