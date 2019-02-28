@@ -11,12 +11,30 @@ patterns: [
         name: 'comment.line.example'
     }
     {
-        match: 'path'
-        name: 'keyword.operator.rbuild'
-    }
-    {
-      begin: '{'
-      end: '}'
-      patterns: [{include: 'source.shell'}]
+        begin: '(path) (.*)'
+        beginCaptures:
+            1: name: 'keyword.operator.rbuild'
+            2: name: 'entity.name.function.rbuild'
+        end: '\('
+        name: 'meta.function.rbuild'
+        patterns: [
+            {
+                begin: '(.*)'
+                beginCaptures:
+                    1: name: 'variable.parameter.rbuild'
+                end: '\)'
+                patterns: [
+                    {
+                        match: ','
+                        name: 'punctuation.separator.parameters.rbuild'
+                    }
+                ]
+            }
+            {
+                begin: '{'
+                end: '}'
+                patterns: [{include: 'source.shell'}]
+            }
+        ]
     }
 ]

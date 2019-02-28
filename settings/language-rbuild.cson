@@ -3,4 +3,4 @@
 
 '.source.rbuild':
   'editor':
-    'commentStart': '// '
+    'commentStart': '# '
