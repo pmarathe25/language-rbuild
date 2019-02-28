@@ -8,10 +8,6 @@ limitLineLength: false
 
 patterns: [
     {
-        match: '#.*'
-        name: 'comment.line.rbuild'
-    }
-    {
         match: '(path)\\s+([^\\(]*)'
         captures:
             1: name: 'storage.type.function.rbuild'
