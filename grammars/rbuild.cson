@@ -8,6 +8,10 @@
 'patterns': [
   {
     'match': '#.*$'
-    'name': 'comment'
+    'name': 'comment.line.example'
+  }
+  {
+      'match': 'path'
+      'name': 'keyword.operator.rbuild'
   }
 ]
