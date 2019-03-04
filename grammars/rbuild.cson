@@ -8,25 +8,21 @@ limitLineLength: false
 
 patterns: [
     {
-        match: '(path)\\s+([^\\(]*)'
+        match: '(path)( |\s)+(.*)'
         captures:
             1: name: 'storage.type.function.rbuild'
-            2: name: 'entity.name.function.rbuild'
+            3: name: 'entity.name.function.rbuild'
     }
     {
-        begin: '\\('
-        end: '\\)'
-        contentName: 'variable.parameter.function.rbuild'
-        patterns: [
-            {
-                match: ','
-                name: 'punctuation.separator.parameters.rbuild'
-            }
-        ]
+        match: '(dep)( |\s)+(.*)'
+        captures:
+            1: name: 'storage.type.function.rbuild'
+            3: name: 'variable.parameter.function.rbuild'
     }
     {
-        begin: '{'
-        end: '}'
-        patterns: [{include: 'source.shell'}]
+        match: '(run)( |\s)+(.*)'
+        captures:
+            1: name: 'storage.type.function.rbuild'
+            3: patterns: [{include: 'source.shell'}]
     }
 ]
