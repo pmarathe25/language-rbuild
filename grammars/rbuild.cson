@@ -29,6 +29,5 @@ patterns: [
         match: '(arg)( |\s)+(.*)'
         captures:
             1: name: 'storage.type.function.rbuild'
-            3: patterns: [{include: 'source.shell'}]
     }
 ]
