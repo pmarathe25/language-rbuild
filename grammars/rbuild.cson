@@ -8,13 +8,17 @@ limitLineLength: false
 
 patterns: [
     {
+        match: '#[0-9]*$'
+        name: 'comment.line.example'
+    }
+    {
         match: '(path)( |\s)+(.*)'
         captures:
             1: name: 'storage.type.function.rbuild'
             3: name: 'entity.name.function.rbuild'
     }
     {
-        match: '(dep)( |\s)+(.*)'
+        match: '(deps)( |\s)+(.*)'
         captures:
             1: name: 'storage.type.function.rbuild'
             3: name: 'variable.parameter.function.rbuild'
@@ -24,10 +28,5 @@ patterns: [
         captures:
             1: name: 'storage.type.function.rbuild'
             3: patterns: [{include: 'source.shell'}]
-    }
-    {
-        match: '(arg)( |\s)+(.*)'
-        captures:
-            1: name: 'storage.type.function.rbuild'
     }
 ]
